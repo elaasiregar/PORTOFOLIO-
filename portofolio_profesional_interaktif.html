@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ela Khairani Br. Siregar, S.Kom - Portofolio Profesional</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a',
+                        secondary: '#2563eb',
+                        accent: '#f59e0b',
+                        darkBg: '#090d16'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-secondary selection:text-white">
+
+    <!-- Floating Edit Mode Toggle Button -->
+    <div class="fixed bottom-6 right-6 z-50 flex items-center gap-2">
+        <button id="edit-mode-btn" class="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold px-5 py-3 rounded-full shadow-2xl flex items-center gap-2 transition transform hover:scale-105 border border-white/20">
+            <i class="fa-solid fa-pen-to-square"></i> <span id="btn-text">Aktifkan Mode Edit</span>
+        </button>
+        <button id="save-mode-btn" class="hidden bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-5 py-3 rounded-full shadow-2xl flex items-center gap-2 transition transform hover:scale-105 border border-white/20">
+            <i class="fa-solid fa-floppy-disk"></i> Simpan Perubahan
+        </button>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed top-24 right-6 z-50 bg-emerald-600 text-white px-6 py-3 rounded-xl shadow-2xl transform translate-y-32 opacity-0 transition-all duration-300 flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-xl"></i>
+        <span id="toast-msg">Perubahan berhasil disimpan!</span>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 w-full bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80 z-40 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="text-xl font-extrabold tracking-tight text-white flex items-center gap-3">
+                <span class="w-3.5 h-3.5 bg-blue-500 rounded-full inline-block shadow-[0_0_12px_#3b82f6]"></span>
+                <span contenteditable="false" class="editable-field" data-key="nav-title">ELA KHAIRANI</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#profil" class="hover:text-blue-400 transition">Profil</a>
+                <a href="#pendidikan" class="hover:text-blue-400 transition">Pendidikan</a>
+                <a href="#pengalaman" class="hover:text-blue-400 transition">Pengalaman</a>
+                <a href="#organisasi" class="hover:text-blue-400 transition">Organisasi</a>
+                <a href="#keahlian" class="hover:text-blue-400 transition">Keahlian</a>
+                <a href="#kontak" class="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-xl shadow-lg transition">Hubungi Saya</a>
+            </nav>
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-slate-200 focus:outline-none text-xl p-2">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-6 py-5 space-y-4">
+            <a href="#profil" class="block text-slate-300 hover:text-blue-400">Profil</a>
+            <a href="#pendidikan" class="block text-slate-300 hover:text-blue-400">Pendidikan</a>
+            <a href="#pengalaman" class="block text-slate-300 hover:text-blue-400">Pengalaman</a>
+            <a href="#organisasi" class="block text-slate-300 hover:text-blue-400">Organisasi</a>
+            <a href="#keahlian" class="block text-slate-300 hover:text-blue-400">Keahlian</a>
+            <a href="#kontak" class="block text-blue-400 font-semibold">Hubungi Saya</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="profil" class="pt-36 pb-24 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:24px_24px]"></div>
+        <div class="max-w-6xl mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center gap-12">
+            <div class="flex-1 text-center md:text-left">
+                <span class="inline-block bg-blue-500/10 text-blue-400 text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-widest mb-6 border border-blue-500/20 shadow-inner">
+                    <span contenteditable="false" class="editable-field" data-key="hero-badge">Sarjana Komputer | Sistem Informasi</span>
+                </span>
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+                    <span contenteditable="false" class="editable-field" data-key="hero-name">Ela Khairani Br. Siregar, S.Kom</span>
+                </h1>
+                <p class="text-lg text-slate-300 max-w-xl mb-8 leading-relaxed font-light">
+                    <span contenteditable="false" class="editable-field" data-key="hero-desc">Sarjana Komputer lulusan Universitas Islam Negeri Sumatera Utara dengan keahlian di bidang Sistem Informasi, IT Support, serta Desain Grafis. Berpengalaman dalam pengelolaan administrasi perkantoran, penyiaran media (talent host TVRI), pembuatan konten digital, serta kemampuan komunikasi publik sebagai MC.</span>
+                </p>
+                <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                    <a href="#kontak" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-7 py-3.5 rounded-xl shadow-xl transition flex items-center gap-2.5">
+                        <i class="fa-solid fa-envelope"></i> Hubungi Saya
+                    </a>
+                    <a href="tel:083103721973" class="bg-slate-900/80 hover:bg-slate-800 border border-slate-700 text-white font-semibold px-7 py-3.5 rounded-xl transition flex items-center gap-2.5 shadow-lg">
+                        <i class="fa-solid fa-phone text-blue-400"></i> <span contenteditable="false" class="editable-field" data-key="hero-phone">0831-0372-1973</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Photo Upload & Display Container -->
+            <div class="flex flex-col items-center gap-4">
+                <div class="w-64 h-72 md:w-80 md:h-96 rounded-3xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-sky-400 p-1.5 shadow-2xl relative overflow-hidden group">
+                    <img id="profile-img" src="WhatsApp Image 2026-10-05 at 14.43.56.jpeg" alt="Ela Khairani Br. Siregar" class="w-full h-full object-cover rounded-[22px] shadow-inner bg-slate-900 transform group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/400x500/1e293b/ffffff?text=Foto+Profil'">
+                    
+                    <!-- Upload overlay active in edit mode -->
+                    <div id="photo-upload-overlay" class="hidden absolute inset-0 bg-black/70 backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer transition">
+                        <i class="fa-solid fa-camera text-3xl text-white mb-2"></i>
+                        <span class="text-xs font-semibold text-white px-4 py-2 bg-blue-600 rounded-xl shadow-lg">Ganti Foto Profil</span>
+                        <input type="file" id="photo-input" accept="image/*" class="hidden">
+                    </div>
+                </div>
+                <span id="photo-hint" class="hidden text-xs text-slate-400 italic">Klik foto untuk mengganti gambar</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pendidikan & Akademik -->
+    <section id="pendidikan" class="py-24 max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">Pendidikan & Akademik</h2>
+            <p class="text-slate-400 mt-3">Latar belakang institusi pendidikan formal</p>
+            <div class="w-16 h-1 bg-blue-600 mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-slate-900/60 p-8 rounded-3xl shadow-xl border border-slate-800 hover:border-blue-500/50 transition">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-xs font-bold text-blue-400 bg-blue-500/10 px-3.5 py-1.5 rounded-xl border border-blue-500/20">S1 Reguler</span>
+                    <span class="text-sm font-semibold text-slate-400">2022 - 2026</span>
+                </div>
+                <h3 class="text-2xl font-bold text-white">Universitas Islam Negeri Sumatera Utara</h3>
+                <p class="text-blue-400 font-semibold mt-1">Sarjana Komputer (S.Kom) - Program Studi Sistem Informasi</p>
+                <p class="text-slate-300 text-sm mt-4 leading-relaxed font-light">
+                    Menyelesaikan studi dengan pencapaian akademis IPK <strong class="text-white">3.84</strong>, mempelajari arsitektur sistem informasi, tata kelola IT, analisis proses bisnis, dan pemrograman dasar.
+                </p>
+            </div>
+
+            <div class="bg-slate-900/60 p-8 rounded-3xl shadow-xl border border-slate-800 hover:border-blue-500/50 transition">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-xs font-bold text-blue-400 bg-blue-500/10 px-3.5 py-1.5 rounded-xl border border-blue-500/20">Pendidikan Menengah</span>
+                    <span class="text-sm font-semibold text-slate-400">2019 - 2022</span>
+                </div>
+                <h3 class="text-2xl font-bold text-white">SMA 8 Muhammadiyah Kisaran</h3>
+                <p class="text-blue-400 font-semibold mt-1">Sekolah Menengah Atas</p>
+                <p class="text-slate-300 text-sm mt-4 leading-relaxed font-light">
+                    Aktif dalam kegiatan ekstrakurikuler atletik yang membentuk kedisiplinan dan sportivitas tinggi, serta berpengalaman kerja paruh waktu di administrasi sekolah sejak masa SMA.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pengalaman Kerja -->
+    <section id="pengalaman" class="py-24 bg-slate-900/40 border-y border-slate-800/80">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">Pengalaman Kerja</h2>
+                <p class="text-slate-400 mt-3">Jejak profesional dan tanggung jawab kerja</p>
+                <div class="w-16 h-1 bg-blue-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="space-y-8 max-w-4xl mx-auto">
+                <!-- Item 1 -->
+                <div class="bg-slate-900 p-8 rounded-3xl shadow-xl border border-slate-800 relative pl-8 md:pl-10">
+                    <div class="absolute left-0 top-0 bottom-0 w-2.5 bg-blue-600 rounded-l-3xl"></div>
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <h3 class="text-2xl font-bold text-white">Praktik Kerja Lapangan (PKL) - TVRI Sumatera Utara</h3>
+                        <span class="text-sm font-semibold text-blue-400 bg-blue-500/10 px-4 py-1.5 rounded-full w-fit mt-2 md:mt-0 border border-blue-500/20">Juli 2024 - Agu 2024</span>
+                    </div>
+                    <p class="text-sm font-semibold text-slate-400 mb-4">Talent Host & Content Creator</p>
+                    <ul class="space-y-3 text-slate-300 text-sm list-disc pl-5 font-light">
+                        <li>Menjadi talent host dengan kemampuan berbicara yang baik, percaya diri, dan komunikatif di depan kamera.</li>
+                        <li>Membuat dan menyunting konten digital untuk kebutuhan media sosial lembaga penyiaran publik.</li>
+                        <li>Menyampaikan informasi secara jelas, menarik, dan mudah dipahami oleh audiens luas.</li>
+                    </ul>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="bg-slate-900 p-8 rounded-3xl shadow-xl border border-slate-800 relative pl-8 md:pl-10">
+                    <div class="absolute left-0 top-0 bottom-0 w-2.5 bg-indigo-600 rounded-l-3xl"></div>
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <h3 class="text-2xl font-bold text-white">Staf Tata Usaha Sekolah</h3>
+                        <span class="text-sm font-semibold text-indigo-400 bg-indigo-500/10 px-4 py-1.5 rounded-full w-fit mt-2 md:mt-0 border border-indigo-500/20">2019 - 2021</span>
+                    </div>
+                    <p class="text-sm font-semibold text-slate-400 mb-4">Administrasi & Pengelolaan Data</p>
+                    <ul class="space-y-3 text-slate-300 text-sm list-disc pl-5 font-light">
+                        <li>Mengelola dokumen, arsip, dan data administrasi sekolah secara terstruktur dan teliti.</li>
+                        <li>Menyusun surat resmi, laporan kerja, dan dokumen administratif menggunakan Microsoft Word.</li>
+                        <li>Menginput, memperbarui, serta membantu pengolahan data operasional sekolah secara berkala.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pengalaman Organisasi -->
+    <section id="organisasi" class="py-24 max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">Pengalaman Organisasi & Kegiatan</h2>
+            <p class="text-slate-400 mt-3">Kepemimpinan, kesenian, dan kontribusi sosial</p>
+            <div class="w-16 h-1 bg-blue-600 mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Org 1 -->
+            <div class="bg-slate-900/60 p-7 rounded-3xl shadow-xl border border-slate-800 hover:border-blue-500/50 transition">
+                <div class="text-blue-400 text-3xl mb-4"><i class="fa-solid fa-users-rectangle"></i></div>
+                <h3 class="font-bold text-white text-lg mb-2">Dewan Eksekutif Mahasiswa Fakultas (DEMAF)</h3>
+                <p class="text-slate-300 text-sm leading-relaxed font-light">Berkoordinasi aktif dengan pengurus dan anggota dalam perencanaan serta pelaksanaan berbagai program kerja kemahasiswaan tingkat fakultas.</p>
+            </div>
+
+            <!-- Org 2 -->
+            <div class="bg-slate-900/60 p-7 rounded-3xl shadow-xl border border-slate-800 hover:border-blue-500/50 transition">
+                <div class="text-blue-400 text-3xl mb-4"><i class="fa-solid fa-wallet"></i></div>
+                <h3 class="font-bold text-white text-lg mb-2">Bendahara KKN Desa Sampe Raya</h3>
+                <p class="text-slate-300 text-sm leading-relaxed font-light">Mengelola pencatatan keuangan masuk dan keluar kelompok KKN secara transparan serta menyusun laporan pertanggungjawaban dana kegiatan.</p>
+            </div>
+
+            <!-- Org 3 -->
+            <div class="bg-slate-900/60 p-7 rounded-3xl shadow-xl border border-slate-800 hover:border-blue-500/50 transition">
+                <div class="text-blue-400 text-3xl mb-4"><i class="fa-solid fa-microphone-lines"></i></div>
+                <h3 class="font-bold text-white text-lg mb-2">Master of Ceremony (MC)</h3>
+                <p class="text-slate-300 text-sm leading-relaxed font-light">Memandu berbagai acara resmi maupun non-resmi secara profesional, komunikatif, dan interaktif sesuai susunan rundown acara.</p>
+            </div>
+
+            <!-- Org 4 -->
+            <div class="bg-slate-900/60 p-7 rounded-3xl shadow-xl border border-slate-800 hover:border-blue-500/50 transition">
+                <div class="text-blue-400 text-3xl mb-4"><i class="fa-solid fa-book-open-reader"></i></div>
+                <h3 class="font-bold text-white text-lg mb-2">Seni Berbicara & Sastra (LKSM)</h3>
+                <p class="text-slate-300 text-sm leading-relaxed font-light">Menampilkan pembacaan puisi, pidato, dan cerpen dengan artikulasi dan ekspresi yang baik untuk mengasah kemampuan public speaking.</p>
+            </div>
+
+            <!-- Org 5 -->
+            <div class="bg-slate-900/60 p-7 rounded-3xl shadow-xl border border-slate-800 hover:border-blue-500/50 transition">
+                <div class="text-blue-400 text-3xl mb-4"><i class="fa-solid fa-clipboard-user"></i></div>
+                <h3 class="font-bold text-white text-lg mb-2">Sekretaris Kelas</h3>
+                <p class="text-slate-300 text-sm leading-relaxed font-light">Membantu koordinasi internal kelas, penyampaian informasi penting, serta pengelolaan administrasi akademik mahasiswa.</p>
+            </div>
+
+            <!-- Org 6 -->
+            <div class="bg-slate-900/60 p-7 rounded-3xl shadow-xl border border-slate-800 hover:border-blue-500/50 transition">
+                <div class="text-blue-400 text-3xl mb-4"><i class="fa-solid fa-person-running"></i></div>
+                <h3 class="font-bold text-white text-lg mb-2">Atletik</h3>
+                <p class="text-slate-300 text-sm leading-relaxed font-light">Berpartisipasi dalam kegiatan olahraga atletik semasa sekolah untuk membangun ketahanan fisik, kedisiplinan, dan sportivitas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Keahlian & Kompetensi -->
+    <section id="keahlian" class="py-24 bg-slate-900/50 border-t border-slate-800/80">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">Keahlian & Kompetensi Profesional</h2>
+                <p class="text-slate-400 mt-3">Kombinasi kemampuan teknis dan interpersonal</p>
+                <div class="w-16 h-1 bg-blue-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Skill 1 -->
+                <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 shadow-xl">
+                    <div class="text-blue-400 text-2xl mb-4"><i class="fa-solid fa-headset"></i></div>
+                    <h3 class="font-bold text-white text-lg mb-2">IT Support & Pemecahan Masalah</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed font-light">Memahami dasar pemecahan kendala perangkat keras, perangkat lunak, sistem operasi, serta penanganan teknis operasional.</p>
+                </div>
+
+                <!-- Skill 2 -->
+                <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 shadow-xl">
+                    <div class="text-blue-400 text-2xl mb-4"><i class="fa-solid fa-palette"></i></div>
+                    <h3 class="font-bold text-white text-lg mb-2">Desain Grafis & Konten Visual</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed font-light">Terampil merancang materi grafis, media promosi, dan konten digital yang menarik menggunakan Canva serta aplikasi kreatif.</p>
+                </div>
+
+                <!-- Skill 3 -->
+                <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 shadow-xl">
+                    <div class="text-blue-400 text-2xl mb-4"><i class="fa-solid fa-comments"></i></div>
+                    <h3 class="font-bold text-white text-lg mb-2">Public Speaking & Komunikasi</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed font-light">Berpengalaman sebagai MC, talent host TVRI, serta memiliki keterampilan interpersonal yang kuat dalam berinteraksi.</p>
+                </div>
+
+                <!-- Skill 4 -->
+                <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 shadow-xl">
+                    <div class="text-blue-400 text-2xl mb-4"><i class="fa-solid fa-file-lines"></i></div>
+                    <h3 class="font-bold text-white text-lg mb-2">Administrasi Perkantoran</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed font-light">Terampil mengelola dokumen formal, arsip fisik/digital, surat-menyurat, serta pengoperasian Microsoft Word & Excel.</p>
+                </div>
+
+                <!-- Skill 5 -->
+                <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 shadow-xl">
+                    <div class="text-blue-400 text-2xl mb-4"><i class="fa-solid fa-laptop-code"></i></div>
+                    <h3 class="font-bold text-white text-lg mb-2">Sistem Informasi & Data</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed font-light">Pemahaman mendalam mengenai analisis proses bisnis, pengelolaan basis data, dan tata kelola teknologi informasi.</p>
+                </div>
+
+                <!-- Skill 6 -->
+                <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 shadow-xl">
+                    <div class="text-blue-400 text-2xl mb-4"><i class="fa-solid fa-people-group"></i></div>
+                    <h3 class="font-bold text-white text-lg mb-2">Manajemen Tim & Waktu</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed font-light">Mampu berkoordinasi efektif dalam tim kerja, adaptif terhadap lingkungan formal, serta disiplin dalam manajemen waktu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak / Footer -->
+    <footer id="kontak" class="py-24 bg-slate-950 text-slate-100 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-4 text-white">Mari Terhubung & Berkolaborasi</h2>
+            <p class="text-slate-400 max-w-xl mx-auto mb-10 font-light">
+                Saya terbuka untuk peluang karier di bidang IT Support, Administrasi, Media, Maupun Penyiaran. Jangan ragu untuk menghubungi saya melalui kontak di bawah ini.
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-6 mb-12">
+                <a href="mailto:elasiregar03@gmail.com" class="flex items-center gap-3 bg-slate-900 border border-slate-800 px-6 py-4 rounded-2xl shadow-xl hover:border-blue-500 transition text-slate-200 font-medium">
+                    <i class="fa-solid fa-envelope text-blue-400 text-xl"></i>
+                    elasiregar03@gmail.com
+                </a>
+                <a href="tel:083103721973" class="flex items-center gap-3 bg-slate-900 border border-slate-800 px-6 py-4 rounded-2xl shadow-xl hover:border-blue-500 transition text-slate-200 font-medium">
+                    <i class="fa-solid fa-phone text-blue-400 text-xl"></i>
+                    0831-0372-1973
+                </a>
+                <div class="flex items-center gap-3 bg-slate-900 border border-slate-800 px-6 py-4 rounded-2xl shadow-xl text-slate-200 font-medium">
+                    <i class="fa-solid fa-location-dot text-blue-400 text-xl"></i>
+                    Sibiru-Biru, Deli Serdang, Sumatera Utara
+                </div>
+            </div>
+
+            <p class="text-xs text-slate-500">
+                &copy; 2026 Ela Khairani Br. Siregar, S.Kom. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Interactive Script for Live Editing & Photo Upload -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Edit Mode Logic
+        const editBtn = document.getElementById('edit-mode-btn');
+        const saveBtn = document.getElementById('save-mode-btn');
+        const btnText = document.getElementById('btn-text');
+        const editableFields = document.querySelectorAll('.editable-field');
+        const photoOverlay = document.getElementById('photo-upload-overlay');
+        const photoHint = document.getElementById('photo-hint');
+        const photoInput = document.getElementById('photo-input');
+        const profileImg = document.getElementById('profile-img');
+        const toast = document.getElementById('toast');
+        const toastMsg = document.getElementById('toast-msg');
+
+        let isEditing = false;
+
+        // Load saved changes from localStorage on start
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedData = JSON.parse(localStorage.getItem('ela_portfolio_data') || '{}');
+            for (const [key, val] of Object.entries(savedData)) {
+                const el = document.querySelector(`[data-key="${key}"]`);
+                if (el) el.innerText = val;
+            }
+            const savedImg = localStorage.getItem('ela_portfolio_img');
+            if (savedImg) {
+                profileImg.src = savedImg;
+            }
+        });
+
+        editBtn.addEventListener('click', () => {
+            isEditing = true;
+            editBtn.classList.add('hidden');
+            saveBtn.classList.remove('hidden');
+            
+            editableFields.forEach(field => {
+                field.setAttribute('contenteditable', 'true');
+                field.classList.add('border-b', 'border-blue-500', 'bg-blue-950/30', 'px-1', 'rounded');
+            });
+
+            photoOverlay.classList.remove('hidden');
+            photoHint.classList.remove('hidden');
+
+            showToast("Mode Edit Diaktifkan! Silakan klik teks atau foto untuk mengubah.");
+        });
+
+        photoOverlay.addEventListener('click', () => {
+            if (isEditing) {
+                photoInput.click();
+            }
+        });
+
+        photoInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    profileImg.src = event.target.result;
+                    localStorage.setItem('ela_portfolio_img', event.target.result);
+                    showToast("Foto profil berhasil diperbarui!");
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        saveBtn.addEventListener('click', () => {
+            isEditing = false;
+            saveBtn.classList.add('hidden');
+            editBtn.classList.remove('hidden');
+
+            const dataToSave = {};
+            editableFields.forEach(field => {
+                field.setAttribute('contenteditable', 'false');
+                field.classList.remove('border-b', 'border-blue-500', 'bg-blue-950/30', 'px-1', 'rounded');
+                const key = field.getAttribute('data-key');
+                if (key) {
+                    dataToSave[key] = field.innerText.trim();
+                }
+            });
+
+            localStorage.setItem('ela_portfolio_data', JSON.stringify(dataToSave));
+
+            photoOverlay.classList.add('hidden');
+            photoHint.classList.add('hidden');
+
+            showToast("Perubahan berhasil disimpan secara permanen!");
+        });
+
+        function showToast(msg) {
+            toastMsg.innerText = msg;
+            toast.classList.remove('translate-y-32', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-32', 'opacity-0');
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
